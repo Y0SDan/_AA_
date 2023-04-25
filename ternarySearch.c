@@ -74,7 +74,7 @@ int main()
         printf("El número está presente en el índice %d del arreglo.\n", result);
     }
 
-    printf("Tiempo de ejecución: %f segundos.\n", time_used);
+    printf("Tiempo de ejecución: %lf segundos.\n", time_used);
 
     return 0;
 }
