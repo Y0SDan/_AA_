@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <time.h>
 
 // Función recursiva para calcular coeficientes binomiales
 int coeficiente_binomial_recursivo(int n, int k) {
@@ -28,10 +29,30 @@ int coeficiente_binomial_dinamico(int n, int k) {
 }
 
 int main() {
-    int n = 5, k = 2;
+    int n,k,r;
+    clock_t start,end;
+    double time_used;
 
-    printf("Coeficiente binomial de %d y %d usando función recursiva: %d\n", n, k, coeficiente_binomial_recursivo(n, k));
-    printf("Coeficiente binomial de %d y %d usando programación dinámica: %d\n", n, k, coeficiente_binomial_dinamico(n, k));
+
+    printf("Ingresa el valor de n: ");
+    scanf("%d",&n);
+
+    printf("Ingresa el valor de k: ");
+    scanf("%d",&k);
+
+    start = clock();
+    r = coeficiente_binomial_recursivo(n,k);
+    end = clock();
+    printf("Coeficiente binomial de %d y %d usando función recursiva: %d\n", n, k, r);
+    time_used =((double) (end - start)) / CLOCKS_PER_SEC;
+    printf("El programa tardó %lf segundos en completarse\n\n",time_used);
+
+    start = clock();
+    r = coeficiente_binomial_dinamico(n,k);
+    end = clock();
+    printf("Coeficiente binomial de %d y %d usando función dinamica: %d\n", n, k, r);
+    time_used =((double) (end - start)) / CLOCKS_PER_SEC;
+    printf("El programa tardó %lf segundos en completarse\n\n",time_used);
 
     return 0;
 }
