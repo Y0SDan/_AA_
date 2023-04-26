@@ -12,22 +12,26 @@ int FibRec(int n) {
 }
 
 /* Algoritmo iterativo que utiliza una tabla para almacenar los cálculos */
-int FibIter(int n) {
-    int tabla[n+1];
+long double FibIter(int n) {
+    long double tabla[n+1];
+    int i;
+
     tabla[0] = 1;
     tabla[1] = 1;
-    for (int i = 2; i <= n; i++) {
+    for (i = 2; i <= n; i++) {
         tabla[i] = tabla[i-1] + tabla[i-2];
     }
     return tabla[n];
 }
 
 /* Algoritmo iterativo que utiliza solo dos variables para almacenar los dos últimos términos calculados */
-int FibIter2(int n) {
-    int x = 1;
-    int y = 1;
-    int suma;
-    for (int i = 2; i <= n; i++) {
+long double FibIter2(int n) {
+    int i;
+    long double x = 1;
+    long double y = 1;
+    long double suma;
+
+    for (i = 2; i <= n; i++) {
         suma = x + y;
         y = x;
         x = suma;
@@ -36,7 +40,8 @@ int FibIter2(int n) {
 }
 
 int main(){
-    int n,v,r;
+    int n,v;
+    long double r;
     clock_t start, end;
     double timeUsed;
 
@@ -71,7 +76,7 @@ int main(){
         break;
     }
 
-    printf("\nEl valor de la posicion %d en la sucesion de fibonacci es: %d\n\n: ",n,r);
+    printf("\nEl valor de la posicion %d en la sucesion de fibonacci es: %Lf\n\n: ",n,r);
     timeUsed = ((double) (end - start)) / CLOCKS_PER_SEC;
     printf("La funcion tardó %lf segundos en completarse\n",timeUsed);
 
