@@ -49,13 +49,13 @@ int main(){
     scanf("%d",&n);
     printf("\n");
 
-    printf("1 -> Recursivo\n");
+    /*printf("1 -> Recursivo\n");
     printf("2 -> Iterativo (tabla)\n");
     printf("3 -> Iterativo (x,y)\n");
     printf("Ingrese el metodo que desea usar: ");
-    scanf("%d",&v);
+    scanf("%d",&v);*/
 
-    switch (v)
+    /*switch (v)
     {
     case 1:
         start = clock();
@@ -74,11 +74,30 @@ int main(){
         break;
     default:
         break;
-    }
+    }*/
+
+    start = clock();
+    r = FibRec(n);
+    end = clock();
+    printf("\nEl valor de la posicion %d en la sucesion de fibonacci implmentado por recursividad es: %d\n",n,r);
+    timeUsed = ((double) (end - start)) / CLOCKS_PER_SEC;
+    printf("La funcion tardó %lf segundos en completarse\n\n",timeUsed);
+
+    start = clock();
+    r = FibIter(n);
+    end = clock();
+    printf("\nEl valor de la posicion %d en la sucesion de fibonacci implmentado por tablas es: %d\n",n,r);
+    timeUsed = ((double) (end - start)) / CLOCKS_PER_SEC;
+    printf("La funcion tardó %lf segundos en completarse\n\n",timeUsed);
+
 
     printf("\nEl valor de la posicion %d en la sucesion de fibonacci es: %Lf\n\n: ",n,r);
+    start = clock();
+    r = FibIter2(n);
+    end = clock();
+    printf("\nEl valor de la posicion %d en la sucesion de fibonacci implementado por varibles es: %Lf\n",n,r);//son necesarios los ultimos dos valores calculados oara determinar cada cambio
     timeUsed = ((double) (end - start)) / CLOCKS_PER_SEC;
-    printf("La funcion tardó %lf segundos en completarse\n",timeUsed);
+    printf("La funcion tardó %lf segundos en completarse\n\n",timeUsed);
 
     return 0;
 }
