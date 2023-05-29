@@ -2,7 +2,7 @@
 #include <time.h>
 #include <stdlib.h>
 
-#define n 4            //Para el tamaño del tablero n*n
+#define n 5            //Para el tamaño del tablero n*n
 typedef unsigned int TABLERO[n][n];
 TABLERO tablero;
 int mov_x[8];
@@ -24,7 +24,7 @@ void Rey2(int k, int x, int y, int* numsoluciones) {
     orden = 0;
     
     do {
-        orden++;
+        //orden++;
         u = x + mov_x[orden];
         v = y + mov_y[orden];
         
@@ -39,6 +39,7 @@ void Rey2(int k, int x, int y, int* numsoluciones) {
             
             tablero[u-1][v-1] = 0;
         }
+        orden++;
     } while (orden != 8);
 }
 
