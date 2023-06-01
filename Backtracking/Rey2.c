@@ -2,7 +2,7 @@
 #include <time.h>
 #include <stdlib.h>
 
-#define n 5            //Para el tamaño del tablero n*n
+#define n 7            //Para el tamaño del tablero n*n
 typedef unsigned int TABLERO[n][n];
 TABLERO tablero;
 int mov_x[8];
