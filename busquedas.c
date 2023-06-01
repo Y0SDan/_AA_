@@ -3,7 +3,7 @@
 #include <time.h>
 #include <stdbool.h>
 
-#define MAX 10
+#define MAX 15
 
 void breadth_first_search(int g[MAX][MAX], int n, int start, bool visited[MAX], int values[MAX], int search_value, bool *found) {
     int queue[MAX], front = 0, rear = 0;
@@ -61,13 +61,19 @@ int main() {
     scanf("%d", &search_value);
     printf("\nSelecciona el método de búsqueda:\n1. Búsqueda en anchura (BFS)\n2. Búsqueda en profundidad (DFS)\n");
     scanf("%d", &search_method);
+    clock_t start_time, end_time;
+    double time_taken;
+    start_time = clock();
     if (search_method == 1)
         breadth_first_search(g, n, 0, visited, values, search_value, &found);
     else
         depth_first_search(g, n, 0, visited, values, search_value, &found);
+    end_time = clock();
+    time_taken = ((double)(end_time - start_time)) / CLOCKS_PER_SEC;
     if (found)
         printf("\nEl número %d está en el grafo.\n", search_value);
     else
         printf("\nEl número %d no está en el grafo.\n", search_value);
+    printf("Tiempo que tardó el algoritmo de búsqueda: %f segundos\n", time_taken);
     return 0;
 }
